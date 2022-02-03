@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./1.css">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+<body>
+   <div class="container">
+       <br>
+    <table class="table table-bordered">
+        <thead>
+            <button type="button" class="bgcolor text-white" id="btn-addrow" >
+                <i class="fa fa-plus-circle" style="font-size:24px;color:white"></i>
+
+                add row
+              </button>
+
+          </thead>
+          <br>
+          <br>
+          <tbody id="myTable">
+
+            <tr  class="bgcolor text-white">
+                <td >action</td>
+              <td>number</td>
+              <td>Type</td>
+                  <td colspan="2" >statuse</td>
+            </tr>
+            <tr>
+                <td > <button type="button" id="delete-btn" class="btn btn-danger">
+                     
+                    <i class="fa fa-trash-o" style="font-size:24px"></i>
+                    Delete
+                  </button> 
+                  <button type="button" id="clone-btn" class="btn btn-primary">
+                     
+                    <i class="fa fa-copy" style="font-size:24px"></i>
+                    clone
+                  </button>
+                </td>
+              <td>
+                  <input type="text" name="" id="">
+            </td>
+              <td>
+                  <input type="text" name="" id="">
+            </td>
+                  <td colspan="2" >
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">New</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">inprogress</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">confirmed</label>
+                      </div>
+                  </td>
+            </tr>
+            
+          </tbody>
+      </table>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script><script>
+   $(function(){
+  $('#btn-addrow').click(function() {
+    $('#myTable').prepend('<tr><td></td><td></td><td></td></tr>');
+console.log("dddd");
+  })
+});
+   $(function(){
+     $('#delete-btn').click(function(){
+      // $('tr').remove();
+      $(this).closest("tr").remove();
+
+     })
+   });
+   $(function(){
+$("#clone-btn").click(function(){
+
+  var removeLink = '<a href="#" class="remNew">-</a>';
+    var row = $(this).closest('table').find('tr:last-child').clone();
+
+    row.find('a').attr('class', 'remNew');
+    row.find('a').html('-');
+
+    $(this).closest('table').append(row);
+
+
+
+})
+   })
+</script>
+</body>
+
+
+</html>
